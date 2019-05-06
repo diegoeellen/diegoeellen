@@ -114,7 +114,7 @@
             $('.container .messages').html('');
 
             // Get
-            $.getJSON('https://dianper.github.io/api/messages.json', (data) => {
+            $.getJSON('api/messages.json', (data) => {
                 if (data) {
                     var count = 0;
                     data.map((m) => {
