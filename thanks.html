@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Diego Pereira">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Diego & Ellen - Wedding</title>
+
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+            <a class="text-petit-formal-script navbar-brand" href="index.html">Nosso Site</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="padrinhos.html">Nossos Padrinhos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="mensagem.html">Deixe-nos uma Mensagem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rsvp.html">Confirmacao de Presenca</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Presentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Localizacao</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+                <h1 class="display-4">Thanks..</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row p-5 justify-content-md-center">
+                <p id="message" class="d-none pb-3 display-4 text-center">Sua mensagem foi enviada com sucesso!</p>
+                <p id="confirmation" class="d-none pb-3 display-4 text-center">Confirmacao efetuada com sucesso!</p>
+                <p>Voce sera redirecionado automaticamente.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            if (window.location.search.indexOf('?page=rsvp') > -1) {
+                $('#confirmation').removeClass('d-none');
+            } else {
+                $('#message').removeClass('d-none');
+            }
+
+            window.setTimeout(() => {
+                window.location.href = 'https://dianper.github.io';
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>
