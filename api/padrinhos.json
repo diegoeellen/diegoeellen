@@ -1,57 +1,57 @@
 [
     {
         "name": "Carol e Thiago",
-        "description": "Amorinha da noiva e irmão do noivo. Além de cunhados, os melhores e verdadeiros concelhos são deles.",
-        "image": "images/padrinhos/carol-thiago.png"
+        "description": "Amorinha da noiva e irmão do noivo. Além de cunhados, os melhores e verdadeiros concelhos são deles. &#9924;",
+        "image": "images/padrinhos/carol-thiago.jpg"
     },
     {
         "name": "Felipe",
-        "description": "Irmão gêmeo da noiva, sem dúvida um pedaço do coração da noiva.",
-        "image": "images/padrinhos/6.jpg"
+        "description": "Irmão gêmeo da noiva, sem dúvida um pedaço do coração da noiva. &#129351;",
+        "image": "images/padrinhos/gemeos.jpg"
     },
     {
         "name": "Nati e Fe",
-        "description": "A eterna suruba dos noivos rs. O casal mais top e mais parceiros, são os chameguinhos dos noivos.",
-        "image": "images/padrinhos/nati-fe.jpeg"
+        "description": "A eterna suruba dos noivos rs. O casal mais top e mais parceiros, são os chameguinhos dos noivos. &#127867;",
+        "image": "images/padrinhos/nati-fe.jpg"
     },
     {
         "name": "Sergio",
-        "description": "Irmão de consideração e maior parceiro do noivo.",
+        "description": "Irmão de consideração e maior parceiro do noivo. &#127866;",
         "image": "images/padrinhos/sergio1.jpg"
     },
     {
         "name": "Henrique e Carol",
-        "description": "O casal de riquezinhas da noiva, a amiga e amigo mais companheiros da noiva.",
-        "image": "images/padrinhos/carol-henrique.jpeg"
+        "description": "O casal de riquezinhas da noiva, a amiga e amigo mais companheiros da noiva. &#129303;",
+        "image": "images/padrinhos/carol-henrique.jpg"
     },
     {
         "name": "Michelle",
-        "description": "Amiga querida da noiva, um exemplo de mulher para a noiva.",
-        "image": "images/padrinhos/2.jpg"
+        "description": "Amiga querida da noiva, um exemplo de mulher para a noiva. &#128587;",
+        "image": "images/padrinhos/michelle.jpg"
     },
     {
-        "name": "Gim e Pri",
-        "description": "Amigos de infancia do noivo e um casal inspiração para os noivos.",
-        "image": "images/padrinhos/7.jpg"
+        "name": "Pri e Gim",
+        "description": "Amigos de infancia do noivo e um casal inspiração para os noivos. &#129346;",
+        "image": "images/padrinhos/pri-gim.jpg"
     },
     {
         "name": "Mariane",
-        "description": "A maior diversão da noiva, melhor parceira.",
-        "image": "images/padrinhos/mariane.jpeg"
+        "description": "A maior diversão da noiva, melhor parceira. &#128131;",
+        "image": "images/padrinhos/mariane.jpg"
     },
     {
         "name": "Rodolfo",
-        "description": "O maior incentivador dos noivos, sempre presente com as melhores palavras do mundo.",
-        "image": "images/padrinhos/rodolfo.jpeg"
+        "description": "O maior incentivador dos noivos, sempre presente com as melhores palavras do mundo. &#128293;",
+        "image": "images/padrinhos/rodolfo.jpg"
     },
     {
         "name": "Perna e Jeh",
-        "description": "O casal visionário rs, sempre torcendo pelos noivos.",
+        "description": "O casal visionário rs, sempre torcendo pelos noivos. &#128302;",
         "image": "images/padrinhos/perna-jeh.jpg"
     },
     {
         "name": "Vivi",
-        "description": "A barbie da noiva, amiga linda e inspiradora.",
-        "image": "images/padrinhos/vivi.jpeg"
+        "description": "A barbie da noiva, amiga linda e inspiradora. &#127799;",
+        "image": "images/padrinhos/vivi.jpg"
     }
 ]

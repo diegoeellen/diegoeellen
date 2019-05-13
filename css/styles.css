@@ -131,6 +131,11 @@ body {
       background-color: pink;
       color: #fff;
   }
+
+  .jumbotron-fluid::after {
+    background-color: black;
+    z-index: 1;
+  }
   
   /* RESPONSIVE CSS
   -------------------------------------------------- */
