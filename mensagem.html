@@ -39,10 +39,10 @@
                         <a class="nav-link" href="rsvp.html">Confirmacao de Presenca</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Presentes</a>
+                        <a class="nav-link" href="product-list.html">Presentes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Localizacao</a>
+                        <a class="nav-link" href="evento.html">Evento</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +57,8 @@
         <div class="container">
             <div class="row pb-4 justify-content-md-center">
                 <div class="col col-lg-6 col-md-10">
-                    <form id="frmMessage" action="https://formspree.io/dgo.andrade88@gmail.com" method="POST">
+                    <form novalidate id="frmMessage" action="https://formspree.io/dgo.andrade88@gmail.com"
+                        method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Nome</label>
@@ -83,12 +84,19 @@
                     </form>
                 </div>
             </div>
-            <div class="p-3 text-center">
-                <h1 class="subtitle">Mensagens</h1>
+            <div id="messagesContainer" class="d-none">
+                <div class="p-3 text-center">
+                    <h1 class="subtitle">Mensagens</h1>
+                </div>
+                <div class="messages"></div>
             </div>
-            <div class="messages"></div>
         </div>
     </main>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">2019 - Powered by Diego Pereira</span>
+        </div>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -116,6 +124,10 @@
             // Get
             $.getJSON('api/messages.json', (data) => {
                 if (data) {
+                    if (data.length > 0) {
+                        $('#messagesContainer').removeClass('d-none');                        
+                    }
+
                     var count = 0;
                     data.map((m) => {
                         var messageDate = new Date(m.date.year, m.date.month, m.date.day, m.date.hour, m.date.minute);
@@ -133,6 +145,37 @@
                     });
                 }
             });
+
+            // Form validate
+            $('#frmMessage').submit((event) => {
+                clearInvalidCss();
+
+                var isFormOk = true;
+
+                if ($.trim($('#name').val()) === '') {
+                    $('#name').addClass('is-invalid');
+                    isFormOk = false;
+                }
+
+                if ($.trim($('#_replyto').val()) === '') {
+                    $('#_replyto').addClass('is-invalid');
+                    isFormOk = false;
+                }
+
+                if ($.trim($('#message').val()) === '') {
+                    $('#message').addClass('is-invalid');
+                    isFormOk = false;
+                }
+
+                return isFormOk;
+            });
+
+            // Clear
+            clearInvalidCss = () => {
+                $('#name').removeClass('is-invalid');
+                $('#_replyto').removeClass('is-invalid');
+                $('#message').removeClass('is-invalid');
+            };
         });
     </script>
 </body>

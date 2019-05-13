@@ -39,10 +39,10 @@
                         <a class="nav-link active" href="rsvp.html">Confirmacao de Presenca</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Presentes</a>
+                        <a class="nav-link" href="product-list.html">Presentes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Localizacao</a>
+                        <a class="nav-link" href="evento.html">Evento</a>
                     </li>
                 </ul>
             </div>
@@ -58,7 +58,7 @@
         <div class="container">
             <div class="row pb-4 justify-content-md-center">
                 <div class="col col-lg-4 col-md-8">
-                    <form id="frmRSVP" action="https://formspree.io/dgo.andrade88@gmail.com" method="POST">
+                    <form novalidate id="frmRSVP" action="https://formspree.io/dgo.andrade88@gmail.com" method="POST">
                         <div class="form-group">
                             <label>Nome</label>
                             <input type="text" class="form-control" id="name" name="name" autofocus>
@@ -75,8 +75,8 @@
                             <label class="mr-sm-2">Voce ira ao evento?</label>
                             <select class="custom-select mr-sm-2" id="choose" name="choose">
                                 <option value="0">Escolha...</option>
-                                <option value="1">Sim</option>
-                                <option value="2">Nao</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Nao</option>
                             </select>
                         </div>
                         <div class="form-row">
@@ -91,11 +91,15 @@
             </div>
         </div>
     </main>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">2019 - Powered by Diego Pereira</span>
+        </div>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -103,6 +107,46 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            // Form validate
+            $('#frmRSVP').submit((event) => {
+                clearInvalidCss();
+
+                var isFormOk = true;
+
+                if ($.trim($('#name').val()) === '') {
+                    $('#name').addClass('is-invalid');
+                    isFormOk = false;
+                }
+
+                if ($.trim($('#email').val()) === '') {
+                    $('#email').addClass('is-invalid');
+                    isFormOk = false;
+                }
+
+                if ($.trim($('#phone').val()) === '') {
+                    $('#phone').addClass('is-invalid');
+                    isFormOk = false;
+                }
+
+                if ($.trim($('#choose').val()) === '0') {
+                    $('#choose').addClass('is-invalid');
+                    isFormOk = false;
+                }
+
+                return isFormOk;
+            });
+
+            // Clear
+            clearInvalidCss = () => {
+                $('#name').removeClass('is-invalid');
+                $('#email').removeClass('is-invalid');
+                $('#phone').removeClass('is-invalid');
+                $('#choose').removeClass('is-invalid');
+            };
+        });
+    </script>
 </body>
 
 </html>
