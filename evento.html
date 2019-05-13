@@ -12,7 +12,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Diego & Ellen - Wedding</title>
-
     <link href="css/styles.css" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
@@ -34,7 +33,7 @@
                         <a class="nav-link" href="padrinhos.html">Nossos Padrinhos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="mensagem.html">Deixe-nos uma Mensagem</a>
+                        <a class="nav-link" href="mensagem.html">Deixe-nos uma Mensagem</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="rsvp.html">Confirmacao de Presenca</a>
@@ -43,7 +42,7 @@
                         <a class="nav-link" href="product-list.html">Presentes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="evento.html">Evento</a>
+                        <a class="nav-link active" href="localizacao.html">Evento</a>
                     </li>
                 </ul>
             </div>
@@ -52,14 +51,30 @@
     <main>
         <div class="jumbotron jumbotron-fluid">
             <div class="container text-center">
-                <h1 class="display-4">Thanks..</h1>
+                <h1 class="display-4">Venha curtir conosco este momento unico</h1>
             </div>
         </div>
         <div class="container">
-            <div class="row p-5 justify-content-md-center">
-                <p id="message" class="d-none pb-3 display-4 text-center">Sua mensagem foi enviada com sucesso!</p>
-                <p id="confirmation" class="d-none pb-3 display-4 text-center">Confirmacao efetuada com sucesso!</p>
-                <p>Voce sera redirecionado automaticamente.</p>
+            <div class="pb-3 text-center">
+                <h1 class="subtitle">Sobre o Evento</h1>
+            </div>
+            <div class="row pb-4 justify-content-md-center">
+                <div class="col-md-6 col-lg-4 pb-3">
+                    <h3><small class="text-muted">Data e Hora</small></h3>
+                    <p class="lead pb-3">04 de Janeiro de 2020 as 11:00am<p/>
+                    <hr class="p-1">
+                    <h3><small class="text-muted">Localizacao</small></h3>
+                    <address class="lead">
+                        <strong>MANSÃO ISADORA CORTEZ</strong><br>
+                        Rua Fernando Falcão, 475 - Mooca<br>
+                        São Paulo, SP 03180-000
+                    </address>                    
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2891630589274!2d-46.58793408549154!3d-23.55805596735432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5eb04fa66971%3A0xefa30bcc26e8e3c6!2sMans%C3%A3o+Isadora+Cortez!5e0!3m2!1sen!2spt!4v1557264317695!5m2!1sen!2spt"
+                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>                
             </div>
         </div>
     </main>
@@ -78,19 +93,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-            if (window.location.search.indexOf('?page=rsvp') > -1) {
-                $('#confirmation').removeClass('d-none');
-            } else {
-                $('#message').removeClass('d-none');
-            }
-
-            window.setTimeout(() => {
-                window.location.href = '/';
-            }, 5000);
-        });
-    </script>
 </body>
 
 </html>
