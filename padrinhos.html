@@ -2,114 +2,58 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Diego Pereira">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Diego Pereira">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Diego & Ellen - Wedding</title>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-    <title>Diego & Ellen - Wedding</title>
-    <link href="css/styles.css" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<!-- Styles CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+	<!-- Common -->
+	<script src="scripts/common.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-            <a class="text-petit-formal-script navbar-brand" href="index.html">Nosso Site</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="padrinhos.html">Nossos Padrinhos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mensagem.html">Deixe-nos uma Mensagem</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="rsvp.html">Confirmacao de Presenca</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product-list.html">Presentes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="evento.html">Evento</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <div id="headerContent"></div>
     <main>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4 text-center">Sobre nossos padrinhos</h1>
+        <div class="jumbotron jumbotron-fluid" style="background-color: #F6CED8">
+            <div class="container text-center">
+                <h3 class="text-lobster-two shadow-1 pb-3">#CasamentoEllenEMoska</h3>
+                <div class="row justify-content-center">
+                    <div class="col-8 col-md-6 col-lg-4">
+                        <img src="images/brasao1.png" style="max-width: 100%">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container">
-            <div class="pb-3 text-center">
-                <h1 class="subtitle">Padrinhos e Madrinhas</h1>
+            <div class="row justify-content-center pb-4">
+                <div class="col-12 text-center">
+                    <h1 class="subtitle">Padrinhos e Madrinhas</h1>
+                </div>
             </div>
-            <div class="row"></div>
+            <div id="containerPadrinhos" class="row"></div>
         </div>
     </main>
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">2019 - Powered by Diego Pereira</span>
-        </div>
-    </footer>
+    <div id="footerContent"></div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(() => {
-            // Template
-            var template =
-                `<div class="col-lg-3 col-md-4 pb-4">
-                    <div class="card h-100">
-                        <img class="card-img-top" src="#image" alt="#alt">
-                        <div class="card-body">
-                            <h4 class="card-title">#name</h4>
-                            <p class="card-text">#description</p>
-                        </div>
-                    </div>
-                </div>`;
-
-            // Clear
-            $('.container .row').html('');
-
-            // Get
-            $.getJSON('api/padrinhos.json', (data) => {
-                if (data) {
-                    // Add
-                    data.map((p) => {
-                        var card = template
-                            .replace('#image', p.image)
-                            .replace('#alt', p.name)
-                            .replace('#name', p.name)
-                            .replace('#description', p.description);
-
-                        $('.container .row').append(card);
-                    });
-                }
-            });
-        });        
-    </script>
+    <!-- Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/padrinhos.js"></script>
 </body>
 
 </html>

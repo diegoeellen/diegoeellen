@@ -7,81 +7,109 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Diego Pereira">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 	<title>Diego & Ellen - Wedding</title>
-	<link href="css/styles.css" rel="stylesheet">
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+	<!-- Styles CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+	<!-- Common -->
+	<script src="scripts/common.js"></script>
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-			<a class="text-petit-formal-script navbar-brand" href="index.html">Nosso Site</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link active" href="index.html">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="padrinhos.html">Nossos Padrinhos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="mensagem.html">Deixe-nos uma Mensagem</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="rsvp.html">Confirmacao de Presenca</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="product-list.html">Presentes</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="evento.html">Evento</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+	<div id="headerContent"></div>
 	<main>
-		<div class="jumbotron jumbotron-fluid">
+		<div class="jumbotron jumbotron-fluid" style="background-color: #F6CED8">
 			<div class="container text-center">
-				<h3 class="text-lobster-two shadow-1 p-2">Vamos casar!</h3>
-				<div class="row align-items-center justify-content-md-center p-3">
-					<div class="col-md-4 col-lg-3 pb-2">
-						<h1 class="display-1 index-cover-title shadow-4">Diego</h1>
-					</div>
-					<div class="col-md-2 col-lg-1 pb-2">
-						<h1 class="display-3 text-pinyon-script"><span class="badge badge-pill badge-danger">e</span>
-						</h1>
-					</div>
-					<div class="col-md-4 col-lg-3">
-						<h1 class="display-1 index-cover-title shadow-4">Ellen</h1>
+				<h3 class="text-lobster-two shadow-1 pb-3">Vamos casar!</h3>
+				<div class="row justify-content-center pb-3 pb-md-4">
+					<div class="col-8 col-md-6 col-lg-4">
+						<img src="images/brasao1.png" style="max-width: 100%">
 					</div>
 				</div>
-				<h3 class="text-parisienne p-3">04 de Janeiro de 2020 as 11:00am</h3>
-				<div class="pt-3">
-					<h4 class="text-pompiere pb-3">Faltam</h4>
-					<h4 class="text-pompiere" id="demo"></h4>
+				<div class="row justify-content-center">
+					<div class="col-md-10 col-lg-6">
+						<h1 class="display-3 d-none d-sm-block index-cover-title shadow-4">Ellen e Diego</h1>
+						<h1 class="display-5 d-block d-sm-none index-cover-title shadow-4">Ellen e Diego</h1>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container">
-			<div class="pb-3 text-center">
-				<h1 class="subtitle">Sobre nos</h1>
+			<div class="pb-5">
+				<div class="row justify-content-center pb-4">
+					<div class="col-md-12 text-center">
+						<h1 class="subtitle">Quando?</h1>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-12 text-center">
+						<h3 class="text-parisienne">04 de Janeiro de 2020 as 11:00am</h3>
+					</div>
+				</div>
 			</div>
-			<div class="row pb-3 justify-content-md-center">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-12">
+					<h1 class="subtitle text-center pb-3">Faltam</h1>
+					<div id="countdown">
+						<div class="d-flex flex-row bd-highlight justify-content-center">
+							<div class="p-2 mr-1 bd-highlight text-center"
+								style="width: 5rem; background-color: #F6CED8;">
+								<h1 id="cd-days">00</h1>
+							</div>
+							<div class="p-2 mr-1 bd-highlight text-center"
+								style="width: 5rem; background-color: #F6CED8;">
+								<h1 id="cd-hours">00</h1>
+							</div>
+							<div class="p-2 mr-1 bd-highlight text-center"
+								style="width: 5rem; background-color: #F6CED8;">
+								<h1 id="cd-minutes">00</h1>
+							</div>
+							<div class="p-2 mr-1 bd-highlight text-center"
+								style="width: 5rem; background-color: #EA7A78; color: #FFF">
+								<h1 id="cd-seconds">00</h1>
+							</div>
+						</div>
+					</div>
+					<div class="d-flex flex-row bd-highlight justify-content-center">
+						<div class="p-2 mr-1 bd-highlight text-center" style="width: 5rem;">
+							<span>dias</span>
+						</div>
+						<div class="p-2 mr-1 bd-highlight text-center" style="width: 5rem;">
+							<span>hrs</span>
+						</div>
+						<div class="p-2 mr-1 bd-highlight text-center" style="width: 5rem;">
+							<span>min</span>
+						</div>
+						<div class="p-2 mr-1 bd-highlight text-center" style="width: 5rem;">
+							<span>seg</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center pb-4">
+				<div class="col-md-12 text-center">
+					<h1 class="subtitle">Sobre nos</h1>
+				</div>
+			</div>
+			<div class="row justify-content-md-center pb-5">
 				<div class="col-lg-4 col-md-6 pb-3">
 					<div class="card">
 						<img class="card-img-top" src="images/noivos/moska_n.jpg" alt="Noivo">
 						<div class="card-body">
-							<h5 class="card-title">Diego &#129333;&#128526;&#9917;&#127866;&#128187;</h5>
-							<small class="text-muted">Noivo</small>
+							<h5 class="card-title">Diego &#129333;&#127995;&#128526;&#9917;&#127866;&#128187;</h5>
+							<blockquote class="blockquote">
+								<footer class="blockquote-footer"><cite title="Noivo">Noivo</cite></footer>
+							</blockquote>
 						</div>
 					</div>
 				</div>
@@ -89,24 +117,30 @@
 					<div class="card">
 						<img class="card-img-top" src="images/noivos/ellen_n.jpg" alt="Noiva">
 						<div class="card-body">
-							<h5 class="card-title">Ellen &#128112;&#127997;&#128525;&#128147;&#128092;&#128096;</h5>
-							<small class="text-muted">Noiva</small>
+							<h5 class="card-title">Ellen &#128112;&#127995;&#128525;&#128147;&#128092;&#128096;</h5>
+							<blockquote class="blockquote">
+								<footer class="blockquote-footer"><cite title="Noiva">Noiva</cite></footer>
+							</blockquote>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="p-3 text-center">
-				<h1 class="subtitle">Timeline</h1>
+			<div class="row justify-content-center pb-4">
+				<div class="col-md-12 text-center">
+					<h1 class="subtitle">Timeline</h1>
+				</div>
 			</div>
-			<div class="timeline">
+			<div class="timeline pb-5">
 				<div class="row pb-3">
 					<div class="col-lg-6 col-md-8 offset-lg-1">
 						<div class="card">
 							<div class="card-body">
 								<h5 class="card-title"><code>2017</code></h5>
-								<h6 class="card-subtitle mb-2 text-muted">Primeiro beijo</h6>
-								<p class="card-text">Some quick example text to build on the card title and make up the
-									bulk of the card's content.</p>
+								<h6 class="card-subtitle pt-2 pb-2">Primeiro beijo</h6>
+								<p class="lead text-justify">Nos reencontrarmos, só que nesse momento nossos corações se
+									olharam e não apenas nossos olhos! &#128143; A partir daí sabíamos exatamente que
+									era aquilo que procuramos a vida toda. &#128525;
+								</p>
 							</div>
 						</div>
 					</div>
@@ -116,9 +150,14 @@
 						<div class="card">
 							<div class="card-body">
 								<h5 class="card-title"><code>2018</code></h5>
-								<h6 class="card-subtitle mb-2 text-muted">Nosso noivado</h6>
-								<p class="card-text">Some quick example text to build on the card title and make up the
-									bulk of the card's content.</p>
+								<h6 class="card-subtitle pt-2 pb-2">Nosso noivado</h6>
+								<p class="lead text-justify">No tradicional dia dos namorados aconteceu aquele pedido
+									que toda mulher aguarda a vida inteira da pessoa certa e aconteceu, do nosso
+									jeitinho, na nossa intimidade e foi perfeito! &#128141; Só foi o primeiro passo do
+									que estava a acontecer! Enfim, um dos nossos sonhos se tornando realidade, tivemos
+									uma incrível oportunidade e mudamos para Portugal, para começar uma vida linda
+									juntos. &#128107;&#128640;
+								</p>
 							</div>
 						</div>
 					</div>
@@ -128,117 +167,48 @@
 						<div class="card">
 							<div class="card-body">
 								<h5 class="card-title"><code>2019</code></h5>
-								<h6 class="card-subtitle mb-2 text-muted">Preparativos</h6>
-								<p class="card-text">Some quick example text to build on the card title and make up the
-									bulk of the card's content.</p>
+								<h6 class="card-subtitle pt-2 pb-2">Preparativos</h6>
+								<p class="lead text-justify">Casamos no civil, que dia especial para nós! Estamos
+									curtindo cada momento da nossa cumplicidade, amor e parceria! &#128143; Muita coisa
+									boa aconteceu, inclusive conseguirmos com a ajuda de quem nos ama, a realizar todos
+									os preparativos do nosso dia mais que especial que está a chegar, o dia em que
+									casaremos perante Deus, familiares e amigos! &#128591;&#127995;
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row pb-3">
+				<div class="row">
 					<div class="col-lg-6 col-md-8 offset-lg-5 offset-md-4">
 						<div class="card">
 							<div class="card-body">
 								<h5 class="card-title"><code>2020</code></h5>
-								<h6 class="card-subtitle mb-2 text-muted">O grande dia</h6>
-								<p class="card-text">Some quick example text to build on the card title and make up the
-									bulk of the card's content.</p>
+								<h6 class="card-subtitle pt-2 pb-2">Save The Date</h6>
+								<p class="lead text-justify">O grande dia estará recheado de amor e felicidade
+									&#129303;, pois não
+									tem forma melhor de comemorar esse dia incrível com as pessoas que mais amamos!
+									&#129333;&#127995;&#128112;&#127995;
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="p-3 text-center">
-				<h1 class="subtitle">Momentos</h1>
+			<div class="row justify-content-center pb-4">
+				<div class="col-md-12 text-center">
+					<h1 class="subtitle">Momentos</h1>
+				</div>
 			</div>
 			<div id="moments" class="row"></div>
 		</div>
 	</main>
-	<footer class="footer">
-		<div class="container">
-			<span class="text-muted">2019 - Powered by Diego Pereira</span>
-		</div>
-	</footer>
+	<div id="footerContent"></div>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
-	<script>
-		$(document).ready(() => {
-			// Set the date we're counting down to
-			var countDownDate = new Date("Jan 4, 2020 11:00:00").getTime();
-
-			// Update the count down every 1 second
-			var x = setInterval(function () {
-
-				// Get todays date and time
-				var now = new Date().getTime();
-
-				// Find the distance between now and the count down date
-				var distance = countDownDate - now;
-
-				// Time calculations for days, hours, minutes and seconds
-				var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-				var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-				var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-				var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-				// Display the result in the element with id="demo"
-				document.getElementById("demo").innerHTML =
-					"<span class=\"badge badge-danger\">" + days + "</span> d " +
-					"<span class=\"badge badge-danger\">" + hours + "</span> h " +
-					"<span class=\"badge badge-danger\">" + minutes + "</span> m " +
-					"<span class=\"badge badge-danger\">" + seconds + "</span> s";
-
-				// If the count down is finished, write some text 
-				if (distance < 0) {
-					clearInterval(x);
-					document.getElementById("demo").innerHTML = "CASADOS!!";
-				}
-			}, 1000);
-
-			// Template
-			var template =
-				`<div class="col-md-4 col-lg-3 pb-4">
-					<figure class="figure">
-						<img src="#image" class="figure-img img-fluid rounded" alt="#alt">
-						<figcaption class="figure-caption">#description</figcaption>
-					</figure>
-				</div>`;
-
-			// Clear
-			$('.container #moments').html('');
-
-			// Get
-			$.getJSON('api/noivos.json', (data) => {
-				if (data) {
-					// Order
-					data = data.sort((a, b) => {
-						return (a.order === b.order ? 0 : (a.order > b.order ? 1 : -1));
-					});
-
-					// Filter
-					data = data.filter((p) => p.visible);
-
-					// Add
-					data.map((p) => {
-						var card = template
-							.replace('#image', p.image)
-							.replace('#alt', p.title)
-							.replace('#description', p.description);
-
-						$('.container #moments').append(card);
-					});
-				}
-			});
-		});
-	</script>
+	<!-- Popper.js, then Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="scripts/firebase.js"></script>
+	<script src="scripts/home.js"></script>
 </body>
 
 </html>

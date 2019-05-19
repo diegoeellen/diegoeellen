@@ -2,163 +2,63 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Diego Pereira">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Diego Pereira">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Diego & Ellen - Wedding</title>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-    <title>Diego & Ellen - Wedding</title>
-    <link href="css/styles.css" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<!-- Styles CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<!-- Common -->
+	<script src="scripts/common.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-            <a class="text-petit-formal-script navbar-brand" href="index.html">Nosso Site</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="padrinhos.html">Nossos Padrinhos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mensagem.html">Deixe-nos uma Mensagem</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="rsvp.html">Confirmacao de Presenca</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="product-list.html">Presentes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="evento.html">Evento</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <div id="headerContent"></div>
     <main>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" style="background-color: #F6CED8">
             <div class="container text-center">
-                <h1 class="display-4">Ajude os noivos</h1>
+                <h3 class="text-lobster-two shadow-1 pb-3">#CasamentoEllenEMoska</h3>
+                <div class="row justify-content-center">
+                    <div class="col-8 col-md-6 col-lg-4">
+                        <img src="images/brasao1.png" style="max-width: 100%">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container">
-            <div class="pb-3 text-center">
-                <h1 class="subtitle">Lista de Presentes</h1>
+            <div class="row justify-content-center pb-3">
+                <div class="col-md-10 col-lg-6 text-center">
+                    <h1 class="subtitle">Lista de Presentes</h1>
+                </div>
             </div>
-            <div class="d-none">
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="encrypted"
-                        value="-----BEGIN PKCS7-----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-----END PKCS7-----">
-                    <input type="image" src="https://www.paypalobjects.com/pt_BR/i/btn/btn_viewcart_SM.gif" border="0"
-                        name="submit" alt="PayPal - A forma mais fácil e segura de efetuar pagamentos online!">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/pt_PT/i/scr/pixel.gif" width="1"
-                        height="1">
-                </form>
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="J34BY8YSHMXEY">
-                    <input type="image" src="https://www.paypalobjects.com/pt_BR/i/btn/btn_cart_LG.gif" border="0"
-                        name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/pt_PT/i/scr/pixel.gif" width="1"
-                        height="1">
-                </form>
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="VVXLSDVEH277N">
-                    <input type="image" src="https://www.paypalobjects.com/pt_PT/PT/i/btn/btn_buynowCC_LG.gif"
-                        border="0" name="submit"
-                        alt="PayPal - A forma mais fácil e segura de efetuar pagamentos online!">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/pt_PT/i/scr/pixel.gif" width="1"
-                        height="1">
-                </form>
-                <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
-                <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" target="pagseguro">
-                    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
-                    <input type="hidden" name="code" value="0509758589897C6DD49B6FA64D52FAA1" />
-                    <input type="hidden" name="iot" value="button" />
-                    <input type="image"
-                        src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/120x53-comprar.gif"
-                        name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
-                </form>
-                <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
-            </div>
-            <div class="row justify-content-end pb-4">
-                <div class="col-md-4 col-lg-3">
-                    <select class="form-control" id="orderby">
-                        <option value="0">Ordenar por</option>
-                        <option>Preco: Maior para menor</option>
-                        <option>Preco: Menor para maior</option>
-                    </select>
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-12 text-center">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button id="btnType1" type="button" onclick="filterBy(1);" class="btn btn-danger btn-sm">Todos</button>
+                        <button id="btnType2" type="button" onclick="filterBy(2);" class="btn btn-light btn-sm">Cotas de Lua de Mel</button>
+                        <button id="btnType3" type="button" onclick="filterBy(3);" class="btn btn-light btn-sm">Lista de Casamento</button>
+                    </div>
                 </div>
             </div>
             <div id="listing" class="row"></div>
         </div>
     </main>
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">2019 - Powered by Diego Pereira</span>
-        </div>
-    </footer>
+    <div id="footerContent"></div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(() => {
-            // Template
-            var template =
-                `<div class="col-lg-3 col-md-4 pb-4">
-                    <div class="card">
-                        <img src="#image" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">#title</h5>                            
-                            <p class="card-text">#description</p>
-                            <h2 class="card-title pricing-card-title">#price</h2>
-                            <a href="#" class="btn btn-sm btn-block btn-success">Comprar</a>
-                        </div>
-                    </div>
-                </div>`;
-
-            // Clear
-            $('.container #listing').html('');
-
-            // Get
-            $.getJSON('api/products.json', (data) => {
-                if (data) {
-                    // Add
-                    data.map((p) => {
-                        var card = template
-                            .replace('#image', p.image)
-                            .replace('#title', p.title)
-                            .replace('#description', p.description)
-                            .replace('#price', p.price.toLocaleString('pt-Br', { style: 'currency', currency: 'BRL' }));
-
-                        $('.container #listing').append(card);
-                    });
-                }
-            });
-        });        
-    </script>
+    <!-- Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/plp.js"></script>
 </body>
 
 </html>
