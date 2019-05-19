@@ -14,69 +14,49 @@
     <title>Diego & Ellen - Wedding</title>
     <link href="css/styles.css" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="scripts/common.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-            <a class="text-petit-formal-script navbar-brand" href="index.html">Nosso Site</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="padrinhos.html">Nossos Padrinhos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mensagem.html">Deixe-nos uma Mensagem</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="rsvp.html">Confirmacao de Presenca</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product-list.html">Presentes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="evento.html">Evento</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <div id="headerContent"></div>
     <main>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" style="background-color: #F6CED8">
             <div class="container text-center">
-                <p>Vai ficar de fora?</p>
-                <h1 class="display-4">Confirme aqui a sua presenca</h1>
+                <div class="row justify-content-center">
+                    <div class="col-8 col-md-6 col-lg-4">
+                        <img src="images/brasao1.png" style="max-width: 100%">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-10 col-lg-6 text-center">
+                    <h1 class="subtitle">Confirme aqui a sua presença &#10004;</h1>
+                </div>
+            </div>
             <div class="row pb-4 justify-content-md-center">
                 <div class="col col-lg-4 col-md-8">
                     <form novalidate id="frmRSVP" action="https://formspree.io/dgo.andrade88@gmail.com" method="POST">
                         <div class="form-group">
-                            <label>Nome</label>
-                            <input type="text" class="form-control" id="name" name="name" autofocus>
+                            <label class="lead">Nome</label>
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label class="lead">Email</label>
                             <input type="email" class="form-control" id="email" name="email">
                         </div>
                         <div class="form-group">
-                            <label>Telefone</label>
+                            <label class="lead">Telefone</label>
                             <input type="text" class="form-control" id="phone" name="phone">
                         </div>
                         <div class="form-group">
-                            <label class="mr-sm-2">Voce ira ao evento?</label>
+                            <label class="mr-sm-2 lead">Você irá ao evento?</label>
                             <select class="custom-select mr-sm-2" id="choose" name="choose">
                                 <option value="0">Escolha...</option>
                                 <option value="sim">Sim</option>
-                                <option value="nao">Nao</option>
+                                <option value="nao">Não</option>
                             </select>
                         </div>
                         <div class="form-row">
@@ -91,62 +71,16 @@
             </div>
         </div>
     </main>
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">2019 - Powered by Diego Pereira</span>
-        </div>
-    </footer>
+    <div id="footerContent"></div>
 
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(() => {
-            // Form validate
-            $('#frmRSVP').submit((event) => {
-                clearInvalidCss();
-
-                var isFormOk = true;
-
-                if ($.trim($('#name').val()) === '') {
-                    $('#name').addClass('is-invalid');
-                    isFormOk = false;
-                }
-
-                if ($.trim($('#email').val()) === '') {
-                    $('#email').addClass('is-invalid');
-                    isFormOk = false;
-                }
-
-                if ($.trim($('#phone').val()) === '') {
-                    $('#phone').addClass('is-invalid');
-                    isFormOk = false;
-                }
-
-                if ($.trim($('#choose').val()) === '0') {
-                    $('#choose').addClass('is-invalid');
-                    isFormOk = false;
-                }
-
-                return isFormOk;
-            });
-
-            // Clear
-            clearInvalidCss = () => {
-                $('#name').removeClass('is-invalid');
-                $('#email').removeClass('is-invalid');
-                $('#phone').removeClass('is-invalid');
-                $('#choose').removeClass('is-invalid');
-            };
-        });
-    </script>
+    <script src="scripts/rsvp.js"></script>
 </body>
 
 </html>
