@@ -8,7 +8,8 @@
             "hour": 11,
             "minute": 52
         },
-        "message": "Lorem ipsum..."
+        "message": "Lorem ipsum...",
+        "visible": false
     },
     {
         "name": "John Doe",
@@ -19,6 +20,7 @@
             "hour": 10,
             "minute": 0
         },
-        "message": "Lorem ipsum..."
+        "message": "Lorem ipsum...",
+        "visible": false
     }
 ]
