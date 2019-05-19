@@ -1,6 +1,7 @@
 [
     {
         "name": "John Doe",
+        "email": "john@email.com",
         "date": {
             "year": 2019,
             "month": 4,
@@ -8,10 +9,12 @@
             "hour": 11,
             "minute": 52
         },
-        "message": "Lorem ipsum..."
+        "message": "Lorem ipsum...",
+        "visible": false
     },
     {
         "name": "John Doe",
+        "email": "john@email.com",
         "date": {
             "year": 2019,
             "month": 4,
@@ -19,6 +22,7 @@
             "hour": 10,
             "minute": 0
         },
-        "message": "Lorem ipsum..."
+        "message": "Lorem ipsum...",
+        "visible": false
     }
 ]
