@@ -155,14 +155,14 @@
     },
     {
         "title": "Matosinhos",
-        "description": "Matosinhos Beach &#127958;&#128089;&#128525;",
+        "description": "Leça da Palmeira &#127958;&#128089;&#128525;",
         "image": "images/noivos/25_n.jpg",
         "order": 22,
         "visible": true
     },
     {
         "title": "Casamento",
-        "description": "Casando os amigos. &#128525;",
+        "description": "Casando os amigos &#128525;",
         "image": "images/noivos/26_n.jpg",
         "order": 23,
         "visible": true
@@ -221,6 +221,20 @@
         "description": "Pré P12 em Jurerê Internacional &#127958;&#127867;",
         "image": "images/noivos/35_n.jpg",
         "order": 2,
+        "visible": true
+    },
+    {
+        "title": "Spain - Madrid",
+        "description": "Parque de El Retiro &#128522;",
+        "image": "images/noivos/file-39-min.jpeg",
+        "order": 31,
+        "visible": true
+    },
+    {
+        "title": "Matosinhos",
+        "description": "Matosinhos Beach &#127958;",
+        "image": "images/noivos/file-40-min.jpeg",
+        "order": 32,
         "visible": true
     }
 ]

@@ -35,7 +35,7 @@ function countDown() {
     }, 1000);
 }
 
-async function loadImagesNoivos() {
+function loadImagesNoivos() {
     // Template
     var template =
         `<div class="col-6 col-md-4 col-lg-3 pb-3">
@@ -49,18 +49,22 @@ async function loadImagesNoivos() {
     $('.container #moments').html('');
 
     // Get
-    var mybase = new myFirebase();
-    var data = await mybase.getImagesNoivos();
+    $.getJSON('api/noivos.json', (data) => {
+        if (data) {
+            // Filter
+            data = data
+                .filter((p) => p.visible)
+                .sort((a, b) => { return a.order - b.order });
 
-    if (data) {
-        // Add
-        data.map((p) => {
-            var card = template
-                .replace('#image', p.image)
-                .replace('#alt', p.title)
-                .replace('#description', p.description);
+            // Add
+            data.map((p) => {
+                var card = template
+                    .replace('#image', p.image)
+                    .replace('#alt', p.title)
+                    .replace('#description', p.description);
 
-            $('.container #moments').append(card);
-        });
-    }
+                $('.container #moments').append(card);
+            });
+        }
+    });
 }

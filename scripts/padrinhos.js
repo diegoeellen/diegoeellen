@@ -2,7 +2,7 @@ $(document).ready(() => {
     loadPadrinhos();
 });
 
-async function loadPadrinhos() {
+function loadPadrinhos() {
     // Template
     var template =
         `<div class="col-md-6 col-lg-4 pb-4">
@@ -19,19 +19,18 @@ async function loadPadrinhos() {
     $('#containerPadrinhos').html('');
 
     // Get
-    var mybase = new myFirebase();
-    var data = await mybase.getPadrinhos();
+    $.getJSON('api/padrinhos.json', (data) => {
+        if (data) {
+            // Add
+            data.map((p) => {
+                var card = template
+                    .replace('#image', p.image)
+                    .replace('#alt', p.name)
+                    .replace('#name', p.name)
+                    .replace('#description', p.description);
 
-    if (data) {
-        // Add
-        data.map((p) => {
-            var card = template
-                .replace('#image', p.image)
-                .replace('#alt', p.name)
-                .replace('#name', p.name)
-                .replace('#description', p.description);
-
-            $('#containerPadrinhos').append(card);
-        });
-    }    
+                $('#containerPadrinhos').append(card);
+            });
+        }
+    });
 }

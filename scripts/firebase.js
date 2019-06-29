@@ -55,32 +55,4 @@ class myFirebase {
             });
         });
     }
-
-    getPadrinhos() {
-        return new Promise((resolve) => {
-            firebase.database().ref('/padrinhos').once('value').then((data) => {
-                resolve(data.val());
-            });
-        });
-    }
-
-    getImagesNoivos() {
-        return new Promise((resolve) => {
-            firebase.database().ref('/noivos').once('value').then((data) => {
-                resolve(data.val()
-                    .filter((f) => f.visible)
-                    .sort((a, b) => {
-                        return (a.order === b.order ? 0 : (a.order > b.order ? 1 : -1));
-                    }));
-            });
-        });
-    }
-
-    getProducts() {
-        return new Promise((resolve) => {
-            firebase.database().ref('/products').once('value').then((data) => {
-                resolve(data.val());
-            });
-        });
-    }
 }
