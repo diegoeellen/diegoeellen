@@ -1,4 +1,9 @@
 $(document).ready(() => {
+    countDown();
+    loadImagesNoivos();
+});
+
+function countDown() {
     // Set the date we're counting down to
     var countDownDate = new Date("Jan 4, 2020 11:00:00").getTime();
 
@@ -16,7 +21,7 @@ $(document).ready(() => {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+
         document.getElementById("cd-days").innerHTML = days;
         document.getElementById("cd-hours").innerHTML = hours;
         document.getElementById("cd-minutes").innerHTML = minutes;
@@ -28,7 +33,9 @@ $(document).ready(() => {
             document.getElementById("demo").innerHTML = "CASADOS!!";
         }
     }, 1000);
+}
 
+async function loadImagesNoivos() {
     // Template
     var template =
         `<div class="col-6 col-md-4 col-lg-3 pb-3">
@@ -42,25 +49,18 @@ $(document).ready(() => {
     $('.container #moments').html('');
 
     // Get
-    $.getJSON('api/noivos.json', (data) => {
-        if (data) {
-            // Order
-            data = data.sort((a, b) => {
-                return (a.order === b.order ? 0 : (a.order > b.order ? 1 : -1));
-            });
+    var mybase = new myFirebase();
+    var data = await mybase.getImagesNoivos();
 
-            // Filter
-            data = data.filter((p) => p.visible);
+    if (data) {
+        // Add
+        data.map((p) => {
+            var card = template
+                .replace('#image', p.image)
+                .replace('#alt', p.title)
+                .replace('#description', p.description);
 
-            // Add
-            data.map((p) => {
-                var card = template
-                    .replace('#image', p.image)
-                    .replace('#alt', p.title)
-                    .replace('#description', p.description);
-
-                $('.container #moments').append(card);
-            });
-        }
-    });
-});
+            $('.container #moments').append(card);
+        });
+    }
+}

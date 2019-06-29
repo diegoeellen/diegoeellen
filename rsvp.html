@@ -2,20 +2,27 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Diego Pereira">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Diego Pereira">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Diego & Ellen - Wedding</title>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-    <title>Diego & Ellen - Wedding</title>
-    <link href="css/styles.css" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-    <script src="scripts/common.js"></script>
+	<!-- Styles CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+	<!-- Common -->
+	<script src="scripts/common.js"></script>
 </head>
 
 <body>
@@ -23,6 +30,7 @@
     <main>
         <div class="jumbotron jumbotron-fluid" style="background-color: #F6CED8">
             <div class="container text-center">
+                <h3 class="text-lobster-two shadow-1 pb-3">#CasamentoEllenEMoska</h3>
                 <div class="row justify-content-center">
                     <div class="col-8 col-md-6 col-lg-4">
                         <img src="images/brasao1.png" style="max-width: 100%">
@@ -38,7 +46,7 @@
             </div>
             <div class="row pb-4 justify-content-md-center">
                 <div class="col col-lg-4 col-md-8">
-                    <form novalidate id="frmRSVP" action="https://formspree.io/dgo.andrade88@gmail.com" method="POST">
+                    <form>
                         <div class="form-group">
                             <label class="lead">Nome</label>
                             <input type="text" class="form-control" id="name" name="name">
@@ -59,13 +67,14 @@
                                 <option value="nao">Não</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <div id="reCaptcha-message"></div>
+                        </div>
                         <div class="form-row">
                             <div class="col">
-                                <button type="submit" class="btn btn-primary">Confirmar</button>
+                                <button type="button" onclick="submitRSVP();" class="btn btn-primary">Confirmar</button>
                             </div>
-                        </div>
-                        <input type="hidden" name="_subject" value="Diego e Ellen - Confirmacao de Presenca">
-                        <input type="hidden" name="_next" value="thanks.html?page=rsvp">
+                        </div>                        
                     </form>
                 </div>
             </div>
@@ -73,13 +82,12 @@
     </main>
     <div id="footerContent"></div>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <!-- Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    <script src="scripts/recaptcha.js"></script>
+    <script src="scripts/firebase.js"></script>
     <script src="scripts/rsvp.js"></script>
 </body>
 

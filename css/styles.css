@@ -1,17 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Loved+by+the+King|Parisienne|Petit+Formal+Script|Pinyon+Script|Tangerine|Lobster+Two|Pompiere);
 
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-
-/*
-font-family: 'Parisienne', cursive;
-font-family: 'Pinyon Script', cursive;
-font-family: 'Petit Formal Script', cursive;
-font-family: 'Loved by the King', cursive;
-font-family: 'Tangerine', serif;
-font-family: 'Lobster', cursive;
-*/
 body {
     padding-top: 3.5rem;
     color: #5a5a5a;
@@ -25,7 +13,7 @@ body {
   background-color: #f5f5f5;
   text-align: center;
 }
-  
+
 .text-pompiere {
   font-family: 'Pompiere', cursive;
 }
