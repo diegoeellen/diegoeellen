@@ -2,35 +2,32 @@
 <html lang="en">
 
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="Diego Pereira">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Diego Pereira">
 
-	<title>Diego & Ellen - Wedding</title>
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Diego & Ellen - Wedding</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-	<!-- Styles CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet">
 
-	<!-- Common -->
-	<script src="scripts/common.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Common -->
+    <script src="scripts/common.js"></script>
 </head>
 
 <body>
     <div id="headerContent"></div>
     <main>
-        <div class="jumbotron jumbotron-fluid" style="background-color: #F6CED8">
-            <div class="container text-center">
-                <h3 class="text-lobster-two shadow-1 pb-3">#CasamentoEllenEMoska</h3>
-                <div class="row justify-content-center">
-                    <div class="col-8 col-md-6 col-lg-4">
-                        <img src="images/brasao1.png" style="max-width: 100%">
-                    </div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/capa/Dreamaker-23.jpg" alt="">                    
                 </div>
             </div>
         </div>
@@ -43,9 +40,12 @@
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 text-center">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button id="btnType1" type="button" onclick="filterBy(1);" class="btn btn-danger btn-sm">Todos</button>
-                        <button id="btnType2" type="button" onclick="filterBy(2);" class="btn btn-light btn-sm">Cotas de Lua de Mel</button>
-                        <button id="btnType3" type="button" onclick="filterBy(3);" class="btn btn-light btn-sm">Lista de Casamento</button>
+                        <button id="btnType1" type="button" onclick="filterBy(1);"
+                            class="btn btn-danger btn-sm">Todos</button>
+                        <button id="btnType2" type="button" onclick="filterBy(2);" class="btn btn-light btn-sm">Cotas de
+                            Lua de Mel</button>
+                        <button id="btnType3" type="button" onclick="filterBy(3);" class="btn btn-light btn-sm">Lista de
+                            Casamento</button>
                     </div>
                 </div>
             </div>

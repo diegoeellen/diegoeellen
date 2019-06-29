@@ -10,8 +10,7 @@ $(document).ready(() => {
             $('a[href="mensagem.html"]').parent().addClass('active');
         } else if (window.location.pathname.includes('/rsvp.html')) {
             $('a[href="rsvp.html"]').parent().addClass('active');
-        } else if (window.location.pathname.includes('/product-list.html')
-            || window.location.pathname.includes('/checkout.html')) {
+        } else if (window.location.pathname.includes('/product-list.html')) {
             $('a[href="product-list.html"]').parent().addClass('active');
         } else if (window.location.pathname.includes('/evento.html')) {
             $('a[href="evento.html"]').parent().addClass('active');
