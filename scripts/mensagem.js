@@ -2,6 +2,7 @@ var myBase = new MyFirebase();
 
 $(document).ready(() => {
     loadMessages();
+    checkSource();
 });
 
 function submitMessage() {
@@ -89,4 +90,18 @@ function clearInvalidCss() {
 
 function GetDateString(date) {
     return new Date(date.year, date.month, date.day, date.hour, date.minute).toLocaleString();
+}
+
+function checkSource() {
+    let params = new URLSearchParams(window.location.search);
+    let hasSuccess = params && params.get("success") === "true";
+    if (hasSuccess) {
+        $('#myModal').modal({
+            keyboard: false
+        });
+
+        $('#myModal').on('hidden.bs.modal', function(e) {
+            $('html,body').animate({ scrollTop: $('.container').offset().top - 130 }, 'slow');
+        });
+    }
 }
