@@ -59,8 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label class="lead">Mensagem</label>
-                            <textarea class="form-control" rows="5" maxlength="500" id="message"
-                                name="message"></textarea>
+                            <textarea class="form-control" rows="5" maxlength="500" id="message" name="message"></textarea>
                         </div>
                         <div class="form-group">
                             <div id="reCaptcha-message"></div>
@@ -81,6 +80,20 @@
                 <div class="messages"></div>
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>Obrigado =)</h3>
+                        <p>Deixe uma mensagem para nós!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <div id="footerContent"></div>
 
@@ -88,7 +101,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-    <script src="scripts/recaptcha.js"></script>    
+    <script src="scripts/recaptcha.js"></script>
     <script src="scripts/mensagem.js"></script>
 </body>
 
