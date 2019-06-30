@@ -1159,7 +1159,7 @@
     {
         "id": 94,
         "stock": 1,
-        "price": 1.00,
+        "price": 0.01,
         "description": "",
         "type": 1,
         "image": "images/products/94.jpg",
@@ -1167,7 +1167,8 @@
         "visible": true,
         "quota": 1,
         "isQuota": false,
-        "paypalId": "FDUC53BE3E4PE"
+        "paypalId": "FDUC53BE3E4PE",
+        "test": true
     },
     {
         "id": 99,

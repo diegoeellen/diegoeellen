@@ -26,7 +26,7 @@ function submitRSVP() {
 
     var result = isFormOk && !!response;
     if (result) {
-        var mybase = new myFirebase();
+        var mybase = new MyFirebase();
         mybase.saveRSVP({
             name: $('#name').val(),
             email: $('#email').val(),
