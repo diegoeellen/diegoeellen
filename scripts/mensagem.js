@@ -1,3 +1,5 @@
+var myBase = new MyFirebase();
+
 $(document).ready(() => {
     loadMessages();
 });
@@ -25,8 +27,7 @@ function submitMessage() {
 
     var result = isFormOk && !!response;
     if (result) {
-        var mybase = new myFirebase();
-        mybase.saveMessage({
+        myBase.saveMessage({
             name: $('#name').val(),
             email: $('#email').val(),
             message: $('#message').val(),
@@ -51,32 +52,32 @@ async function loadMessages() {
     $('.container .messages').html('');
 
     // Get
-    var mybase = new myFirebase();
-    var messages = await mybase.getMessages();
-
+    var messages = await myBase.getMessages();
     if (messages) {
         var count = 0;
+        var keys = Object.keys(messages);
+
+        // Filter & Add        
+        keys.filter(k => messages[k].visible)
+            .forEach((m) => {
+                var message = messages[m];
+                var messageTemplate = template
+                    .replace('#name', message.name)
+                    .replace('#date', GetDateString(message.date))
+                    .replace('#message', message.message);
+
+                $('.container .messages').append(messageTemplate);
+                count++;
+
+                if (keys.length > count) {
+                    $('.container .messages').append('<hr>');
+                }
+            });
 
         // Check
-        if (messages.length > 0) {
+        if (count > 0) {
             $('#messagesContainer').removeClass('d-none');
         }
-
-        // Add
-        messages.map((m) => {
-            var messageDate = new Date(m.date.year, m.date.month, m.date.day, m.date.hour, m.date.minute);
-            var message = template
-                .replace('#name', m.name)
-                .replace('#date', messageDate.toUTCString())
-                .replace('#message', m.message);
-
-            $('.container .messages').append(message);
-            count++;
-
-            if (messages.length > count) {
-                $('.container .messages').append('<hr>');
-            }
-        });
     }
 };
 
@@ -85,3 +86,7 @@ function clearInvalidCss() {
     $('#email').removeClass('is-invalid');
     $('#message').removeClass('is-invalid');
 };
+
+function GetDateString(date) {
+    return new Date(date.year, date.month, date.day, date.hour, date.minute).toLocaleString();
+}

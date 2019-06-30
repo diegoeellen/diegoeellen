@@ -29,9 +29,20 @@ function loadProducts(filterBy = 1) {
     // Get
     $.getJSON('api/products.json', (data) => {
         if (data) {
+            // Test Mode
+            let params = new URLSearchParams(window.location.search);
+            let isTestMode = params && params.get("test") === "true";
+
             // Filter
             data = data
-                .filter((p) => p.visible)
+                .filter(p => p.visible)
+                .filter(p => {
+                    if (!isTestMode) {
+                        return !p.test;
+                    } else {
+                        return p.test;
+                    }
+                })
                 .sort((a, b) => { return a.price - b.price });
 
             // New list

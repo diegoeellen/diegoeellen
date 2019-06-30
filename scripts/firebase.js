@@ -1,4 +1,4 @@
-class myFirebase {
+class MyFirebase {
     constructor() {
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -10,7 +10,6 @@ class myFirebase {
             messagingSenderId: "626876413314",
             appId: "1:626876413314:web:241d5ce826c8d939"
         };
-
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     }
@@ -19,8 +18,8 @@ class myFirebase {
         firebase.database().ref('/messages/').push({
             name: obj.name,
             email: obj.email,
-            date: obj.date,
             message: obj.message,
+            date: this.getObjDate(obj.date),
             visible: obj.visible
         }, (error) => {
             if (error) {
@@ -37,7 +36,7 @@ class myFirebase {
             email: obj.email,
             phone: obj.phone,
             choose: obj.choose,
-            date: obj.date,
+            date: this.getObjDate(obj.date),
             visible: obj.visible
         }, (error) => {
             if (error) {
@@ -51,8 +50,18 @@ class myFirebase {
     getMessages() {
         return new Promise((resolve) => {
             firebase.database().ref('/messages').once('value').then((data) => {
-                resolve(data.val().filter((f) => f.visible));
+                resolve(data.val());
             });
         });
+    }
+
+    getObjDate(date) {
+        return {
+            day: date.getDate(),
+            month: date.getMonth(),
+            year: date.getFullYear(),
+            hour: date.getHours(),
+            minute: date.getMinutes()
+        }
     }
 }
