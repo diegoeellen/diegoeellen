@@ -13,12 +13,25 @@ function loadProducts(filterBy = 1) {
                     <p class="card-text">#description</p>
                     <p class="text-muted text-center">#quota</p>
                     <h2 class="card-title pricing-card-title text-center">#price</h2>
-                    <p class="card-text text-center">#stock</p>                    
-                    <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="#ppId">
-                        <button type="submit" class="btn #btnStyle btn-block">#btnLabel</button>
-                    </form>
+                    <p class="card-text text-center">#stock</p>
+                    <div class="dropdown">
+                        <button class="btn btn-block btn-success dropdown-toggle #btnStyle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            #btnLabel
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <h6 class="dropdown-header text-center">PayPal</h6>
+                            <a class="dropdown-item" href="#">
+                                <form target="_self" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="#ppId">
+                                    <input type="image" src="https://www.paypalobjects.com/pt_BR/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+                                </form>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-center" href="javascript:;" onclick="openModal();">Transferência Bancária</a>
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </div>`;
@@ -35,7 +48,7 @@ function loadProducts(filterBy = 1) {
 
             // Filter
             data = data
-                .filter(p => p.visible)
+                .filter(p => p.visible && p.paypalId != "")
                 .filter(p => {
                     if (!isTestMode) {
                         return !p.test;
@@ -80,13 +93,13 @@ function loadProducts(filterBy = 1) {
 
                 if (p.stock === 0) {
                     card = card
-                        .replace('#btnStyle', 'btn-success disabled')
+                        .replace('#btnStyle', 'disabled')
                         .replace('#btnLabel', 'Comprado')
                         .replace('#stock', 'Obrigado :)');
                 } else {
                     card = card
-                        .replace('#btnStyle', 'btn-outline-success')
-                        .replace('#btnLabel', 'Adicionar ao carrinho');
+                        .replace('#btnStyle', '')
+                        .replace('#btnLabel', 'Comprar');
 
                     if (p.isQuota) {
                         card = p.stock === 1 ? card.replace('#stock', 'falta 1 cota') : card.replace('#stock', 'faltam ' + p.stock + ' cotas');
@@ -119,4 +132,12 @@ function filterBy(type) {
     }
 
     loadProducts(type);
-}
+};
+
+function openModal() {
+    $('#myModal').modal('show');
+};
+
+function goToMessagePage() {
+    window.location.href = '/mensagem.html'
+};
