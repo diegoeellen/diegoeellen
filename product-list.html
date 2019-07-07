@@ -27,7 +27,7 @@
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/capa/Dreamaker-23.jpg" alt="">                    
+                    <img src="images/capa/Dreamaker-23.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -50,6 +50,39 @@
                 </div>
             </div>
             <div id="listing" class="row"></div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Transferência Bancária</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Diego de Andrade Pereira</h5>
+                                    <small>Santander</small>
+                                </div>
+                                <p class="mb-1">0785 / 01002197-0</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Ellen Caroline Spranger Hornschuch</h5>
+                                    <small class="text-muted">Itaú</small>
+                                </div>
+                                <p class="mb-1">0646 / 03068-4</p>
+                            </a>                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="goToMessagePage();">Enviar Mensagem</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <div id="footerContent"></div>
