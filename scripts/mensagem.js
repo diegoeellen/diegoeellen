@@ -60,6 +60,9 @@ async function loadMessages() {
 
         // Filter & Add        
         keys.filter(k => messages[k].visible)
+            .sort((a, b) => {
+                return GetOriginalDate(messages[b].date) - GetOriginalDate(messages[a].date);
+            })
             .forEach((m) => {
                 var message = messages[m];
                 var messageTemplate = template
@@ -92,6 +95,10 @@ function GetDateString(date) {
     return new Date(date.year, date.month, date.day, date.hour, date.minute).toLocaleString();
 }
 
+function GetOriginalDate(date) {
+    return new Date(date.year, date.month, date.day, date.hour, date.minute);
+}
+
 function checkSource() {
     let params = new URLSearchParams(window.location.search);
     let hasSuccess = params && params.get("success") === "true";
@@ -100,7 +107,7 @@ function checkSource() {
             keyboard: false
         });
 
-        $('#myModal').on('hidden.bs.modal', function(e) {
+        $('#myModal').on('hidden.bs.modal', function (e) {
             $('html,body').animate({ scrollTop: $('.container').offset().top - 130 }, 'slow');
         });
     }
