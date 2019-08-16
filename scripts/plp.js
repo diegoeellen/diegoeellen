@@ -14,9 +14,12 @@ function loadProducts(filterBy = 1) {
                     <p class="text-muted text-center">#quota</p>
                     <h2 class="card-title pricing-card-title text-center">#price</h2>
                     <p class="card-text text-center">#stock</p>
-                    <div class="dropdown">
-                        <button class="btn btn-block btn-success dropdown-toggle #btnStyle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            #btnLabel
+                    <div class="alert alert-warning text-center #alertStyle" role="alert">
+                        Oops!! Já foi rs..
+                    </div>
+                    <div class="dropdown #btnStyle">
+                        <button class="btn btn-block btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Comprar
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <h6 class="dropdown-header text-center">PayPal</h6>
@@ -92,14 +95,14 @@ function loadProducts(filterBy = 1) {
                 }
 
                 if (p.stock === 0) {
-                    card = card
-                        .replace('#btnStyle', 'disabled')
-                        .replace('#btnLabel', 'Comprado')
-                        .replace('#stock', 'Obrigado :)');
+                    card = card                        
+                        .replace('#stock', 'Obrigado :)')
+                        .replace('#alertStyle', 'd-block')
+                        .replace('#btnStyle', 'd-none');
                 } else {
                     card = card
-                        .replace('#btnStyle', '')
-                        .replace('#btnLabel', 'Comprar');
+                        .replace('#alertStyle', 'd-none')
+                        .replace('#btnStyle', 'd-block');
 
                     if (p.isQuota) {
                         card = p.stock === 1 ? card.replace('#stock', 'falta 1 cota') : card.replace('#stock', 'faltam ' + p.stock + ' cotas');
