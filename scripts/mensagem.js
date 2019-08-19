@@ -46,7 +46,7 @@ async function loadMessages() {
             <div class="media-body">
                 <h4>#name <small><i>Posted on #date</i></small></h4>
                 <p>#message</p>
-                <span>&#129505;&#128077;</span>
+                <span>&#10084;&#128077;</span>
             </div>
         </div>`;
 
