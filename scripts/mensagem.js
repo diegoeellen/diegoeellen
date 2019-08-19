@@ -46,6 +46,7 @@ async function loadMessages() {
             <div class="media-body">
                 <h4>#name <small><i>Posted on #date</i></small></h4>
                 <p>#message</p>
+                <span>&#129505;&#128077;</span>
             </div>
         </div>`;
 
@@ -54,29 +55,22 @@ async function loadMessages() {
 
     // Get
     var messages = await myBase.getMessages();
-    if (messages) {
+    if (messages && messages.length) {
         var count = 0;
-        var keys = Object.keys(messages);
 
-        // Filter & Add        
-        keys.filter(k => messages[k].visible)
-            .sort((a, b) => {
-                return GetOriginalDate(messages[b].date) - GetOriginalDate(messages[a].date);
-            })
-            .forEach((m) => {
-                var message = messages[m];
-                var messageTemplate = template
-                    .replace('#name', message.name)
-                    .replace('#date', GetDateString(message.date))
-                    .replace('#message', message.message);
+        messages.forEach((e, i) => {
+            var messageTemplate = template
+                .replace('#name', e.name)
+                .replace('#date', GetDateString(e.date))
+                .replace('#message', e.message);
 
-                $('.container .messages').append(messageTemplate);
-                count++;
+            $('.container .messages').append(messageTemplate);
+            count++;
 
-                if (keys.length > count) {
-                    $('.container .messages').append('<hr>');
-                }
-            });
+            if (messages.length > count) {
+                $('.container .messages').append('<hr>');
+            }
+        });
 
         // Check
         if (count > 0) {
@@ -93,10 +87,6 @@ function clearInvalidCss() {
 
 function GetDateString(date) {
     return new Date(date.year, date.month, date.day, date.hour, date.minute).toLocaleString();
-}
-
-function GetOriginalDate(date) {
-    return new Date(date.year, date.month, date.day, date.hour, date.minute);
 }
 
 function checkSource() {
