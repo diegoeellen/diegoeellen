@@ -42,7 +42,7 @@ function submitMessage() {
 async function loadMessages() {
     // Template
     var template =
-        `<div class="media pt-3">
+        `<div class="media pb-3">
             <div class="media-body">
                 <h4>#name <small><i>Posted on #date</i></small></h4>
                 <p>#message</p>
