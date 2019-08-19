@@ -50,7 +50,21 @@ class MyFirebase {
     getMessages() {
         return new Promise((resolve) => {
             firebase.database().ref('/messages').once('value').then((data) => {
-                resolve(data.val());
+                const results = [];
+                const messages = data.val();
+
+                Object.keys(messages)
+                    .filter(key => {
+                        return !messages[key].choose && messages[key].visible;
+                    })
+                    .sort((a, b) => {
+                        return this.getOriginalDate(messages[b].date) - this.getOriginalDate(messages[a].date);
+                    })
+                    .map(key => {
+                        results.push(messages[key]);
+                    });
+
+                resolve(results);
             });
         });
     }
@@ -63,5 +77,9 @@ class MyFirebase {
             hour: date.getHours(),
             minute: date.getMinutes()
         }
+    }
+
+    getOriginalDate(date) {
+        return new Date(date.year, date.month, date.day, date.hour, date.minute);
     }
 }
