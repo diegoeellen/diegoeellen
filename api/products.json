@@ -14,7 +14,7 @@
     },
     {
         "id": 2,
-        "stock": 1,
+        "stock": 0,
         "price": 84.9,
         "description": "",
         "type": 1,
