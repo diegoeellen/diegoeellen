@@ -105,7 +105,7 @@
     },
     {
         "id": 9,
-        "stock": 1,
+        "stock": 0,
         "price": 89.9,
         "description": "",
         "type": 1,
