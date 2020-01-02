@@ -274,7 +274,7 @@
     },
     {
         "id": 22,
-        "stock": 1,
+        "stock": 0,
         "price": 129.99,
         "description": "",
         "type": 1,
@@ -300,14 +300,14 @@
     },
     {
         "id": 24,
-        "stock": 10,
+        "stock": 7,
         "price": 144.98,
         "description": "",
         "type": 2,
         "image": "images/products/103.jpg",
         "title": "Passagens Aéreas de IDA para um lugar especial",
         "visible": true,
-        "quota": 10,
+        "quota": 7,
         "isQuota": true,
         "paypalId": "YT7WSQUN2PCXA"
     },
@@ -833,7 +833,7 @@
     },
     {
         "id": 65,
-        "stock": 1,
+        "stock": 0,
         "price": 156.4,
         "description": "",
         "type": 1,
